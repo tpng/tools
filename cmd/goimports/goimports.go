@@ -8,6 +8,7 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
+	"go/build"
 	"go/scanner"
 	"io"
 	"io/ioutil"
@@ -37,6 +38,7 @@ var (
 
 func init() {
 	flag.BoolVar(&options.AllErrors, "e", false, "report all errors (not just the first 10 on different lines)")
+	build.Default.GOPATH = ""
 }
 
 func report(err error) {
